@@ -24,3 +24,23 @@ function funcA()
 funcA();
 
 //////////////////////////////////////////////////
+// Found later. Example with better names for vars
+console.log('-----------------------------------')
+
+let a = 'global';
+function outer()
+{
+    let b = 'outer';
+
+    function inner() {
+        let c = 'inner'
+        console.log(c);   // выдаст 'inner'
+        console.log(b);   // выдаст 'outer'
+        console.log(a);   // выдаст 'global'
+    }
+    console.log(a);     // выдаст 'global'
+    console.log(b);     // выдаст 'outer'
+    inner();
+}
+outer();
+console.log(a);         // выдаст 'global'

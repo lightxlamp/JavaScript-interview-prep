@@ -35,6 +35,27 @@ manager.print()
 manager.add('React')
 manager.print()
 
+// Interesting example from another article
+function getCounter()
+{
+    let counter = 0;
+
+    return function()
+    {
+        return counter++;
+    }
+}
+
+let counter = getCounter();
+
+console.log(counter) // before changing values
+console.log(counter());  // 0
+console.log(counter());  // 1
+console.log(counter());  // 2
+console.log(counter());  // 3
+console.log(counter());  // 4
+console.log(counter) // after changing values
+
 // Another example
 
 const nameByLetters = ['S', 'T', 'A', 'N', 'I', 'S', 'L', 'A', 'V']
