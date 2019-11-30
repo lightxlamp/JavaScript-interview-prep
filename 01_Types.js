@@ -119,4 +119,8 @@ console.log('- "" == 0 results to:', "" == 0);
 console.log('- "" == [] results to:', "" == []);
 console.log('- "" == {} results to:', "" == {});
 
+console.log('- 0 == [] results to:', 0 == []);
+console.log('- 0 == {} results to:', 0 == {});
+console.log('- 0 == null results to:', 0 == null);
+
 
