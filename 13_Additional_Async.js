@@ -28,3 +28,25 @@ setTimeout(printHello, 1000);
 [1, 2, 3, 4].forEach(function (i) {
     console.log(i)
 })
+
+// Another lesson: https://www.youtube.com/watch?v=SHiUyM_fFME
+// Уже начинал урок))) этот. А там вначале про промисы говориться) Я на урок с ними перепрыгнул. Сейчас добью
+
+const delay = ms => {
+    return new Promise(resolve => setTimeout(() => resolve(), ms) )
+}
+
+delay(5000).then(() => console.log('After 5 secs'))
+
+url = 'https://jsonplaceholder.typicode.com/todos';
+
+function fetchUsers() {
+    console.log('Fetch Started')
+    return delay(6000).then(() => {
+        return fetch(url) // Fetch is a browser function, so I will create another file to run this
+    }).then(returnedPromise => returnedPromise.json())
+}
+
+fetchUsers().then(data => {
+    console.log(data)
+}).catch(e => console.error(e))

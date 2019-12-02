@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // Another lesson: https://www.youtube.com/watch?v=SHiUyM_fFME
+    // Уже начинал урок))) этот. А там вначале про промисы говориться) Я на урок с ними перепрыгнул. Сейчас добью
+
+    const delay = ms => {
+        return new Promise(resolve => setTimeout(() => resolve(), ms) )
+    }
+
+    url = 'https://jsonplaceholder.typicode.com/users';
+
+    function fetchUsers() {
+        console.log('Fetch Started...')
+        return delay(2000).then(() => {
+            return fetch(url) // Fetch is a browser function, so I will create another file to run this
+        }).then(returnedPromise => returnedPromise.json())
+    }
+
+    fetchUsers().then(data => {
+        console.log(data)
+    }).catch(e => console.error(e))
+
+    // But using async/await we can improve code above
+
+    async function fetchUsersAsync(){ // babel covers this async with promise
+        try{
+            await delay(8000)
+            console.log('Await complete. (8 seconds passed)')
+            const response = await fetch(url)
+            const data = await response.json()
+            console.log(data)
+        }
+        catch (e) {
+            console.error(e)
+        }
+        finally {
+
+        }
+    }
+
+    fetchUsersAsync()
+        .then(() => {
+            console.log('Fetching complete')
+        })
+
+</script>
+
+</body>
+</html>
