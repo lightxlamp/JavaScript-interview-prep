@@ -1,7 +1,7 @@
 // JS works in a single thread
 // So.. don't speak about async
 // Async is possible due to Event loop concept. And Call Stack realization
-// JS do not know how to work with TimeOuts. So he uses API of browser. (window.setTimout)
+// JS do not know how to work with TimeOuts. So it uses API of browser. (window.setTimout)
 
 const printOne = () => {console.log('1');}
 const printTwo = () => {console.log('2');}

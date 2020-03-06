@@ -17,7 +17,7 @@ stas.welcome()
 stas.welcomeByName()
 
 
-// class declared above almost equal to thi code:
+// class declared above is almost equal to this one:
 function Userr(name) {
     this.name = name;
 }
