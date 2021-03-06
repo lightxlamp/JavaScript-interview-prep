@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function hello() {
+            console.log('Hello', 'this =', this);
+        }
+        hello();
+
+        const person = {
+            name: 'Stas',
+            age: 31,
+            greetStas: hello,
+            greetStasWithGlobalContext: hello.bind(window), // window can be replaced with 'this' and still window will be the context
+            printInfo: function() {
+                console.group(`Info about: ${this.name}`)
+                console.log(`Name ${this.name}`);
+                console.log(`Age ${this.age}`);
+                console.groupEnd();
+            }
+        }
+
+        const HR = {
+            name: 'Janet',
+            age: 26
+        }
+
+        person.greetStas();
+        person.greetStasWithGlobalContext()
+        person.printInfo();
+        person.printInfo.apply(HR)
+
+        // Got it now. It is very convenient, that we don't need to rewrite function 'print info'...
+        // But this case should not be happen probably.. With a good planning 
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function hello() {
+            console.log('Hello', 'this =', this);
+        }
+        hello();
+
+        const person = {
+            name: 'Stas',
+            age: 31,
+            greetStas: hello,
+            greetStasWithGlobalContext: hello.bind(window), // window can be replaced with 'this' and still window will be the context
+            printInfo: function(job, email) {
+                console.group(`Info about: ${this.name}`)
+                console.log(`Name ${this.name}`);
+                console.log(`Age ${this.age}`);
+                console.log(`Job ${job}`);
+                console.log(`Email ${email}`);
+                console.groupEnd();
+            }
+        }
+
+        const HR = {
+            name: 'Janet',
+            age: 26
+        }
+
+        person.greetStas();
+        person.greetStasWithGlobalContext()
+        person.printInfo('Frontend', 'sheva@gmail.com');
+        person.printInfo.bind(HR)('HR', 'janet@gmail.com'); // Hmmm.. Interesting, seems like this method was not shown in lesson
+        // Way from lesson 
+        const janetInfoFn = person.printInfo.bind(HR);
+        janetInfoFn('HR', 'janet@gmail.com')
+        // It is pretty the same.. 
+
+        person.printInfo.apply(HR, ['HR-apply', 'email-apply@gmail.com'])
+
+        // Fundamental difference is that call() accepts an argument list, while apply() accepts a single array of arguments. 
+        // The difference is that call() takes the function arguments separately, and apply() takes the function arguments in an array.
+
+    </script>
+</body>
+</html>
