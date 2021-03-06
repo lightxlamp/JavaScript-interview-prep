@@ -21,7 +21,8 @@ console.log('- Type of "0" - ' + typeof 0);
 // 4. There are 3 types of Quotation marks: "", '', ``. The latest one called literals
 // Literals can accept dynamic values as I already know from Vue course
 
-console.log("- " + `<div>valueForLiteral</div>`); // TODO write a good example here later
+const valueForLiteral = 'Value for Literal';
+console.log("- " + `<div>${valueForLiteral}</div>`); // TODO write a good example here later [Nov 30, 2019] ... [Mar 06, 2021] Done =) 
 
 console.log('- Type of - Date is - ' + typeof Date);
 console.log('- Type of - Math is - ' + typeof Math);
