@@ -16,3 +16,4 @@ Array.prototype.multBy = function (multiplier) {
 
 console.log(array.multBy(5))
 console.log(array.multBy(2))
+console.log([0, 1, 2].multBy(1))
