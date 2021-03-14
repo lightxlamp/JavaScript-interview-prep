@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const person = { // Object from prev examples
+            name: 'Stas',
+            age: 31, 
+            address: {
+                city: 'Bishkek',
+                country: 'Kyrgyzstan'
+            }
+        }
+
+        const person2 = { // Object from prev examples
+            name: 'Syriah',
+            age: 28, 
+            address: {
+                city: 'New York',
+                country: 'United States of America'
+            }
+        }
+
+        const ipAddress = '227.21.6.173';
+
+        localStorage.setItem('user', person);
+        localStorage.setItem('ip', ipAddress);
+        localStorage.setItem('user2', JSON.stringify(person));
+
+        let rawUserFromLocal = localStorage.getItem('user')
+        console.log(localStorage.getItem('ip'));
+        console.log('rawUserFromLocal', rawUserFromLocal);
+        console.log('typeof(rawUserFromLocal)', typeof(rawUserFromLocal));
+        console.log('rawUserFromLocal.name', rawUserFromLocal.name);
+
+        // console.log('JSON.parse(rawUserFromLocal)', JSON.parse(localStorage.getItem('user')));
+        // console.log('JSON.parse(rawUserFromLocal).name', JSON.parse(rawUserFromLocal).name);
+        let rawUser2FromLocal = localStorage.getItem('user2')
+        console.log('rawUser2FromLocal', rawUser2FromLocal);
+        console.log('JSON.parse(rawUser2FromLocal)', JSON.parse(rawUser2FromLocal));   
+        console.log('JSON.parse(rawUser2FromLocal).name', JSON.parse(rawUser2FromLocal).name = 'Elena');   
+    
+    </script>
+</body>
+</html>

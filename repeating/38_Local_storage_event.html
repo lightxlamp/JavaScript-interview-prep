@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let someValueToSave = '1789'
+
+        localStorage.setItem('someValue', someValueToSave);
+
+        window.addEventListener('storage', function(event) {
+            console.log(event);
+        })
+
+        // !!! localStorage.setItem('valueToTriggerEvent', 'Please write me to console in a separate tab');
+        // https://youtu.be/3-bZ7gLVSzo?t=825
+        // Clear cache before and worked. Nice
+    </script>
+</body>
+</html>
