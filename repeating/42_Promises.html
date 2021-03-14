@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        console.log('Request Data...');
+        const p = new Promise(function(resolve, reject) {
+            setTimeout(() => {
+                console.log('Preparing data...');
+                let backendData = {server : 'AWS', port: 8000, status: 'working'};
+                resolve(backendData)
+            },
+            2000)
+        });
+
+        p.then(function(data) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    data.modified = true;
+                    resolve(data);
+                }, 2000)
+            })
+        }).then(clientData => {
+            console.log('Data received', clientData);
+            clientData.modifiedByPromise = true
+            return clientData
+        }).then(data => {
+            console.log(data);
+        })
+    </script>
+</body>
+</html>

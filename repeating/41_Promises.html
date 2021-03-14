@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        console.log('Request Data...');
+        const p = new Promise(function(resolve, reject) {
+            setTimeout(() => {
+                console.log('Preparing data...');
+                let backendData = {server : 'AWS', port: 8000, status: 'working'};
+                resolve(backendData)
+            },
+            2000)
+        });
+
+        p.then(function(data) {
+            // console.log('Promise resolved', data);
+            const p2 = new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    data.modified = true;
+                    // console.log('Data received', data);
+                    resolve(data);
+                }, 2000)
+            })
+            p2.then((clientData) => {
+                console.log('Data received', clientData);
+            })
+        }) // Looks like callbacks... So why do we need promises? Let's see next file =) 
+    </script>
+</body>
+</html>
